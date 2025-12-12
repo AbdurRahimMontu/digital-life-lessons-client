@@ -1,14 +1,15 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router';
-import NotFound from '../pages/NotFoundPage';
 import Home from '../pages/Home/Home';
 import MainLayout from '../layouts/MainLayout';
+import Register from '../pages/Register/Register';
+import ErrorPage from '../pages/ErrorPage';
 
 
 const Routers = createBrowserRouter([
     {
         path:"/",
-        errorElement:<NotFound></NotFound>,
+        errorElement:<ErrorPage></ErrorPage>,
         element:<MainLayout></MainLayout>,
         children:[
             {
@@ -17,6 +18,15 @@ const Routers = createBrowserRouter([
             }
         ]
 
+    },
+    {
+        path:"/register",
+        element:<Register></Register>
+    },
+
+    {
+        path:"*",
+        element:<ErrorPage></ErrorPage>
     }
 ])
 
